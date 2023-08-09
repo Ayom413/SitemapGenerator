@@ -11,7 +11,7 @@
     "require": {},
     "autoload": {
         "psr-4": {
-            "SitemapGenerator\\": "src/SitemapGenerator.php"
+            "SitemapGenerator\\": "src/"
         }
     },
     "repositories": [
