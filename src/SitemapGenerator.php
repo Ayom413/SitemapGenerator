@@ -53,18 +53,18 @@ class SitemapGenerator
 
     private function XmlGeneration($sitemapData)
     {
-        $xml = new \SimpleXMLElement('<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        $sxe = new \SimpleXMLElement('<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" 
          xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 
          http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd"></urlset>');
         foreach ($sitemapData as $page) {
-            $xml->addChild("url");
-            $xml->addChild("loc", $page["loc"], "lastmod");
-            $xml->addChild("lastmod", $page["lastmod"]);
-            $xml->addChild("priority", $page["priority"]);
-            $xml->addChild("changefreq", $page["changefreq"]);
+            $dat = $sxe->addChild("url");
+            $sxe->addChild("loc", $page["loc"], "lastmod");
+            $sxe->addChild("lastmod", $page["lastmod"]);
+            $sxe->addChild("priority", $page["priority"]);
+            $sxe->addChild("changefreq", $page["changefreq"]);
         }
-        $xml->asXML($this->fPath);
+        $sxe->asXML($this->fPath);
     }
 
     private function CsvGeneration($sitemapData)
@@ -96,7 +96,7 @@ class SitemapGenerator
                 $this->XmlGeneration($sitemapData);
                 break;
             default:
-                throw new InvalidDataTypeExeption();
+                break;
         }
     }
 
