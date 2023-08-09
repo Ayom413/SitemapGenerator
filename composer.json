@@ -20,6 +20,6 @@
             "url": "https://github.com/Ayom413/SitemapGenerator"
         }
     ],
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "prefer-stable": true
 }
