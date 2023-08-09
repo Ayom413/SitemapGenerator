@@ -59,10 +59,10 @@ class SitemapGenerator
          http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd"></urlset>');
         foreach ($sitemapData as $page) {
             $dat = $sxe->addChild("url");
-            $sxe->addChild("loc", $page["loc"], "lastmod");
-            $sxe->addChild("lastmod", $page["lastmod"]);
-            $sxe->addChild("priority", $page["priority"]);
-            $sxe->addChild("changefreq", $page["changefreq"]);
+            $dat->addChild("loc", $page["loc"], "lastmod");
+            $dat->addChild("lastmod", $page["lastmod"]);
+            $dat->addChild("priority", $page["priority"]);
+            $dat->addChild("changefreq", $page["changefreq"]);
         }
         $sxe->asXML($this->fPath);
     }
