@@ -70,7 +70,7 @@ class SitemapGenerator
     private function CsvGeneration($sitemapData)
     {
         $file = fopen($this->fPath, "w");
-        fputcsv($file,["loc,lastmod,priority,changefreq"]);
+        fputcsv($file,["loc;lastmod;priority;changefreq"]);
         foreach ($sitemapData as $page) {
             fputcsv($file, $page);
         }
