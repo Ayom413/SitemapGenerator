@@ -8,12 +8,10 @@
             "email": "wolf413d@gmail.com"
         }
     ],
-    "require":  {
-        "ayom413/sitemap-generator": "^1.0"
-    },
+    "require": {},
     "autoload": {
         "psr-4": {
-            "SitemapGenerator\\": "src/"
+            "SitemapGenerator\\": "src/SitemapGenerator.php"
         }
     },
     "repositories": [
