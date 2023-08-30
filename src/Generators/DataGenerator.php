@@ -2,7 +2,7 @@
 namespace SitemapGenerator\Generators;
 class DataGenerator
 {
-    public function GenerateSitemapData(array $data): array
+    public function generateSitemapData(array $data): array
     {
         $sitemapData = [];
         foreach ($data as $page) {
