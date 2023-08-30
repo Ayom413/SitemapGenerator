@@ -1,5 +1,5 @@
 <?php
-namespace SitemapGenerator\Exceptions;
+namespace SitemapGenerator\Exeptions;
 
 use Exception;
 

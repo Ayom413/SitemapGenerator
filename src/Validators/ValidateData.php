@@ -1,81 +1,58 @@
 <?php
 
-namespace SitemapGenerator\ValdateData;
+namespace SitemapGenerator\Validators;
 
-use SitemapGenerator\Exceptions\InvalidFilePath;
-use SitemapGenerator\Exceptions\InvalidData;
-use SitemapGenerator\Exceptions\InvalidDataTypeExeption;
+use SitemapGenerator\Exeptions\InvalidFilePath;
+use SitemapGenerator\Exeptions\InvalidData;
+use SitemapGenerator\Exeptions\InvalidDataType;
 
-
-class Validator
+class ValidateData
 {
-    private $errors = [];
-   static public function validatePages($pages):void
+    
+    public static function validatePages($pages): void
     {
-        try {
         if (!is_array($pages)) {
-            $errors = throw new InvalidData('Invalid pages data format.information passed to the function must be an array.');
+            throw new InvalidData(
+                "Invalid pages data format. Information passed to the function must be an array."
+            );
         }
-        } catch (InvalidData $e) {
-            echo "InvalidData:" . $e->getMessage();
-            die();
-        }
+
         foreach ($pages as $page) {
-            if (!isset($page['loc']) || !isset($page['lastmod']) || !isset($page['priority']) || !isset($page['changefreq'])) {
-                $errors = throw new InvalidData('Invalid pages data. Every page must include: \'loc\', \'lastmod\',\'priority\',\'changefreq\'');
-                die();
+            if (
+                !isset($page["loc"]) ||
+                !isset($page["lastmod"]) ||
+                !isset($page["priority"]) ||
+                !isset($page["changefreq"])
+            ) {
+                throw new InvalidData(
+                    'Invalid pages data. Every page must include: \'loc\', \'lastmod\', \'priority\', \'changefreq\''
+                );
             }
         }
     }
 
-    static public function validateFileType($fileType):void
+    public static function validateFileType($fileType): void
     {
-        
-            try {
-                if (!in_array($fileType, ["xml", "json", "csv"])) {
-                    throw new InvalidDataTypeExeption();
-                }
-            } catch (InvalidDataTypeExeption $e) {
-                echo "InvalidDataType:" . $e->getMessage();
-                // die();
-            }
-        
+        if (!in_array($fileType, ["xml", "json", "csv"])) {
+            throw new InvalidDataType();
+        }
     }
 
-    static public function validateFilePath($filePath):void
+    public static function validateFilePath($filePath): void
     {
         $Path = dirname($filePath);
 
-        try {
-            if (!is_writable($Path)) {
-                throw new InvalidFilePath();
-            }
-        } catch (InvalidFilePath $e) {
-            echo "Error! InvalidFilePath:" . $e->getMessage();
-            die();
+        if (!is_writable($Path)) {
+            throw new InvalidFilePath();
         }
-
-
     }
-    static public function validateCorrectPath($filePath,$fileType):void
-    {
-        try {
-            if(substr($filePath, -strlen($fileType)) !== $fileType){
-                throw new InvalidFilePath();
-            }
-        }catch (InvalidFilePath $e) {
-            echo "Error! InvalidFilePath:" . $e->getMessage();
-            die();
+    public static function validate(
+        array $page,
+        string $fileType,
+        string $filePath
+    ) {
+        ValidateData::validatePages($page);
+        ValidateData::validateFileType($fileType);
+        ValidateData::validateFilePath($filePath);
     }
-}
-    // static public function validateFileName($fileName):void
-    // {
-    //     $forbidden = ["\\", "/", "|", "*", "\"", "?", "<", ">"];
-    //     foreach($forbidden as $char){
-    //         if(strpos($fileName,$char) !== false){
-    //             throw new IncorrectFileName();
-    //             break;
-    //         }
-    //     }
-    // }
 }

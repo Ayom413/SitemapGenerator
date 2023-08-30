@@ -1,8 +1,9 @@
 <?php
 namespace SitemapGenerator\Generators;
-use Interfaces\GeneratorInterface;
 
-Class GenerateXml implements GeneratorInterface
+use SitemapGenerator\Interfaces\GeneratorInterface;
+
+class XmlGenerator extends GeneratorInterface
 {
     public function generate(array $data, string $filePath)
     {
@@ -19,5 +20,4 @@ Class GenerateXml implements GeneratorInterface
         }
         $sxe->asXML($filePath);
     }
-    
 }

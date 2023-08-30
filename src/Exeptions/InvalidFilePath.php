@@ -1,7 +1,5 @@
 <?php
-namespace SitemapGenerator\Exceptions;
-
-use Exception;
+namespace SitemapGenerator\Exeptions;
 
 class InvalidFilePath extends \RuntimeException
 {

@@ -1,8 +1,6 @@
 <?php
 
-namespace SitemapGenerator\Exceptions;
-
-use Exception;
+namespace SitemapGenerator\Exeptions;
 
 class InvalidData extends \InvalidArgumentException
 {
