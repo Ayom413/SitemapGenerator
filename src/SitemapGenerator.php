@@ -30,7 +30,7 @@ class SitemapGenerator
     public function generation(): string
     {
         $newData = new DataGenerator();
-        $sitemapData = $newData->GenerateSitemapData($this->page);
+        $sitemapData = $newData->generateSitemapData($this->page);
         switch ($this->fileType) {
             case "csv":
                 $csv = new Csvgenerator();
