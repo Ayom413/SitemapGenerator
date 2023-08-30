@@ -32,7 +32,7 @@ print_r($generator);
 The library consists of several classes and interfaces:
 SitemapGenerator class is the main class responsible for generating sitemaps.
 
-```GeneratorInterface ``` is an abstract class that defines the generate method for sitemap generators.
+```Generator``` is an abstract class that defines the generate method for sitemap generators.
 
 ```DataGenerator```,```CsvGenerator```, ```JsonGenerator```, and ```XmlGenerator``` classes implement the main sitemap generation.
 
