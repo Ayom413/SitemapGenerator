@@ -1,9 +1,9 @@
 <?php
 namespace SitemapGenerator\Generators;
 
-use SitemapGenerator\Interfaces\GeneratorInterface;
+use SitemapGenerator\Interfaces\Generator;
 
-class Csvgenerator extends GeneratorInterface
+class Csvgenerator extends Generator
 {
     public function generate(array $data, string $filepath)
     {

@@ -1,9 +1,9 @@
 <?php
 namespace SitemapGenerator\Generators;
 
-use SitemapGenerator\Interfaces\GeneratorInterface;
+use SitemapGenerator\Interfaces\Generator;
 
-class JsonGenerator extends GeneratorInterface
+class JsonGenerator extends Generator
 {
     public function generate(array $data, string $filePath)
     {

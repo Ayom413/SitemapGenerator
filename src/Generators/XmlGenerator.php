@@ -1,9 +1,9 @@
 <?php
 namespace SitemapGenerator\Generators;
 
-use SitemapGenerator\Interfaces\GeneratorInterface;
+use SitemapGenerator\Interfaces\Generator;
 
-class XmlGenerator extends GeneratorInterface
+class XmlGenerator extends Generator
 {
     public function generate(array $data, string $filePath)
     {
