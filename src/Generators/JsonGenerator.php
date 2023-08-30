@@ -1,5 +1,5 @@
 <?php
-namespace SitemapGenerator\SitemapGenerators;
+namespace SitemapGenerator\Generators;
 use Interfaces\GeneratorInterface;
 
 Class GenerateJson implements GeneratorInterface
